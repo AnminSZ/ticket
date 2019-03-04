@@ -10,7 +10,7 @@
         INSERT INTO tkt_msgcontent(id,message,title) VALUES (#{id},#{message},#{title})
     </insert>
     <insert id="addMsg2AllHr">
-        INSERT INTO tkt_sysmsg(id,mid,hrid) select SEQ_TKT_SYSMSG_NEWID.NEXTVAL, tmp.* from (
+        INSERT INTO tkt_sysmsg(id,mid,hrid) select tmp.* from (
         <foreach collection="hrs" item="hr" separator="union all">
             select #{mid},#{hr.id} from dual
         </foreach>

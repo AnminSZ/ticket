@@ -7,7 +7,7 @@
         DELETE FROM tkt_menu_role WHERE rid=#{rid}
     </delete>
     <insert id="addMenu">
-        INSERT INTO tkt_menu_role(id,mid,rid) select SEQ_TKT_MENU_ROLE_NEWID.NEXTVAL, tmp.* from (
+        INSERT INTO tkt_menu_role(id,mid,rid) select tmp.* from (
         <foreach collection="mids" item="mid" separator="union all">
             select #{mid},#{rid} from dual
         </foreach>

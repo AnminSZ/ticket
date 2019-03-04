@@ -1,7 +1,10 @@
 -- Create and populate tables
+-- prompt means print
 prompt PL/SQL Developer Export Tables for user ELITE_YNJ@TAF
 prompt Created by admin on 2018年12月11日
+-- close feedback print
 set feedback off
+-- close & function
 set define off
 
 prompt Dropping TKT_DEPARTMENT...
@@ -21,6 +24,7 @@ create table TKT_DEPARTMENT
 prompt Disabling triggers for TKT_DEPARTMENT...
 alter table TKT_DEPARTMENT disable all triggers;
 prompt Loading TKT_DEPARTMENT...
+--
 insert into TKT_DEPARTMENT (id, name, parentid, deppath, enabled, isparent)
 values (5, '客户服务A组', 4, '.1.4.5', 1, 0);
 insert into TKT_DEPARTMENT (id, name, parentid, deppath, enabled, isparent)
@@ -61,6 +65,7 @@ create table TKT_EMAILGROUP
 prompt Disabling triggers for TKT_EMAILGROUP...
 alter table TKT_EMAILGROUP disable all triggers;
 prompt Loading TKT_EMAILGROUP...
+--
 insert into TKT_EMAILGROUP (group_id, description, email, flag)
 values ('G001', 'Helpdesk', 'helpdesk@neusoft.com', 1);
 insert into TKT_EMAILGROUP (group_id, description, email, flag)
@@ -111,6 +116,7 @@ create table TKT_HR
 prompt Disabling triggers for TKT_HR...
 alter table TKT_HR disable all triggers;
 prompt Loading TKT_HR...
+--
 insert into TKT_HR (id, name, phone, email, address, enabled, username, password, userface, dept)
 values (3, '管理员', '18568887789', 'admin@neusoft.com', null, 1, 'admin', '$2a$10$ySG2lkvjFHY5O0./CPIE1OI8VJsuKYEzOYzqIa7AJR6sEgSzUFOAm', 'http://img.zcool.cn/community/01988e55764a290000002d5cc0d161.jpg@900w_1l_2o_100sh.jpg', 1);
 insert into TKT_HR (id, name, phone, email, address, enabled, username, password, userface, dept)
@@ -158,6 +164,7 @@ create table TKT_HR_ROLE
 prompt Disabling triggers for TKT_HR_ROLE...
 alter table TKT_HR_ROLE disable all triggers;
 prompt Loading TKT_HR_ROLE...
+--
 insert into TKT_HR_ROLE (id, hrid, rid)
 values (61, 10, 1);
 insert into TKT_HR_ROLE (id, hrid, rid)
@@ -380,6 +387,7 @@ create index TKT_MENU_ROLE_NORMAL on TKT_MENU_ROLE (ID)
 prompt Disabling triggers for TKT_MENU_ROLE...
 alter table TKT_MENU_ROLE disable all triggers;
 prompt Loading TKT_MENU_ROLE...
+--
 insert into TKT_MENU_ROLE (id, mid, rid)
 values (105, 26, 1);
 insert into TKT_MENU_ROLE (id, mid, rid)
@@ -560,6 +568,7 @@ create index TKT_MENU_NORMAL_ID on TKT_MENU (ID)
 prompt Disabling triggers for TKT_MENU...
 alter table TKT_MENU disable all triggers;
 prompt Loading TKT_MENU...
+--
 insert into TKT_MENU (id, url, path, component, name, iconcls, keepalive, requireauth, parentid, enabled)
 values (1, '/', null, null, '所有', null, 0, null, null, 1);
 insert into TKT_MENU (id, url, path, component, name, iconcls, keepalive, requireauth, parentid, enabled)
@@ -607,6 +616,7 @@ create table TKT_ROLE
 prompt Disabling triggers for TKT_ROLE...
 alter table TKT_ROLE disable all triggers;
 prompt Loading TKT_ROLE...
+--
 insert into TKT_ROLE (id, name, namezh)
 values (1, 'ROLE_manager', '组长');
 insert into TKT_ROLE (id, name, namezh)
@@ -648,6 +658,7 @@ comment on column LOG_DECLARATION.flag
 prompt Disabling triggers for LOG_DECLARATION...
 alter table LOG_DECLARATION disable all triggers;
 prompt Loading LOG_DECLARATION...
+--
 insert into LOG_DECLARATION (declaration_id, description, flag)
 values ('D001', '电话', 1);
 insert into LOG_DECLARATION (declaration_id, description, flag)
@@ -691,6 +702,7 @@ comment on column LOG_SOURCE.flag
 prompt Disabling triggers for LOG_SOURCE...
 alter table LOG_SOURCE disable all triggers;
 prompt Loading LOG_SOURCE...
+--
 insert into LOG_SOURCE (source_id, description, flag)
 values ('SC001', '用户发现', 1);
 insert into LOG_SOURCE (source_id, description, flag)
@@ -736,6 +748,7 @@ comment on column LOG_PRIORITY.flag
 prompt Disabling triggers for LOG_PRIORITY...
 alter table LOG_PRIORITY disable all triggers;
 prompt Loading LOG_PRIORITY...
+--
 insert into LOG_PRIORITY (priority_id, description, flag)
 values ('P001', 'P1', 1);
 insert into LOG_PRIORITY (priority_id, description, flag)
@@ -779,6 +792,7 @@ comment on column LOG_SERVER.flag
 prompt Disabling triggers for LOG_SERVER...
 alter table LOG_SERVER disable all triggers;
 prompt Loading LOG_SERVER...
+--
 insert into LOG_SERVER (server_id, description, flag)
 values ('SE001', '咨询请求', 1);
 insert into LOG_SERVER (server_id, description, flag)
@@ -825,6 +839,7 @@ comment on column LOG_QUESTIONTYPE.flag
 prompt Disabling triggers for LOG_QUESTIONTYPE...
 alter table LOG_QUESTIONTYPE disable all triggers;
 prompt Loading LOG_QUESTIONTYPE...
+--
 insert into LOG_QUESTIONTYPE (question_id, description, orderno, flag)
 values ('Q00100', 'PC问题', null, 1);
 insert into LOG_QUESTIONTYPE (question_id, description, orderno, flag)
@@ -884,6 +899,7 @@ comment on column LOG_SUBCLASS.flag
 prompt Disabling triggers for LOG_SUBCLASS...
 alter table LOG_SUBCLASS disable all triggers;
 prompt Loading LOG_SUBCLASS...
+--
 insert into LOG_SUBCLASS (subclass_id, questionid, description, orderno, flag)
 values ('Q00101', 'Q00100', 'PC硬件', 1, 1);
 insert into LOG_SUBCLASS (subclass_id, questionid, description, orderno, flag)
@@ -969,6 +985,7 @@ comment on column LOG_AFFECT.flag
 prompt Disabling triggers for LOG_AFFECT...
 alter table LOG_AFFECT disable all triggers;
 prompt Loading LOG_AFFECT...
+--
 insert into LOG_AFFECT (affect_id, description, flag)
 values ('A001', '个人', 1);
 insert into LOG_AFFECT (affect_id, description, flag)
@@ -1005,6 +1022,7 @@ create table C_VIP
 prompt Disabling triggers for C_VIP...
 alter table C_VIP disable all triggers;
 prompt Loading C_VIP...
+--
 insert into C_VIP (vipid, vipdesc)
 values ('1', 'Y');
 insert into C_VIP (vipid, vipdesc)
